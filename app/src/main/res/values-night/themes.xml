@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dark theme override — same dark palette, always dark. -->
+    <style name="Base.Theme.ResqMesh" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent_red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_red</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+    </style>
+
+    <style name="Theme.ResqMesh" parent="Base.Theme.ResqMesh" />
+</resources>

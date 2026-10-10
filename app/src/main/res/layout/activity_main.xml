@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark"
+    tools:context=".MainActivity">
+
+    <!-- ── Header ──────────────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_dark"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ResQMesh"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/accent_red"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offline Disaster Mesh"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- ── Status card ─────────────────────────────────────────────────── -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/surface_dark"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Status"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:id="@+id/tv_peer_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 peer(s)"
+                    android:textSize="13sp"
+                    android:textColor="@color/accent_green"
+                    android:textStyle="bold"
+                    tools:text="2 peer(s)" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Idle — tap Start Mesh"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                tools:text="Advertising + discovering…" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ── Control buttons ─────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp">
+
+        <Button
+            android:id="@+id/btn_start_mesh"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:text="▶ Start Mesh"
+            android:backgroundTint="@color/accent_red"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            style="@style/Widget.Material3.Button" />
+
+        <Button
+            android:id="@+id/btn_stop_mesh"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="■ Stop"
+            android:backgroundTint="@color/surface_card"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            style="@style/Widget.Material3.Button.TonalButton" />
+    </LinearLayout>
+
+    <!-- ── Connected peers ─────────────────────────────────────────────── -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/surface_dark"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connected Devices"
+                android:textSize="13sp"
+                android:textColor="@color/text_secondary"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:id="@+id/tv_peers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="No peers connected"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:minLines="1"
+                tools:text="• Pixel 6a&#10;• Samsung Galaxy S22" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ── Message log ──────────────────────────────────────────────────── -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/surface_dark"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message Log"
+                android:textSize="13sp"
+                android:textColor="@color/text_secondary"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1" />
+
+            <ScrollView
+                android:id="@+id/scroll_view_log"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tv_message_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="13sp"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="monospace"
+                    android:lineSpacingMultiplier="1.4"
+                    tools:text="⬤ Pixel 6a joined the mesh&#10;Pixel 6a: Hello from the field!" />
+            </ScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ── Message input ───────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="Type a message…">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textShortMessage"
+                android:maxLines="2"
+                android:imeOptions="actionSend" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="64dp"
+            android:layout_height="56dp"
+            android:text="Send"
+            android:backgroundTint="@color/accent_red"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            style="@style/Widget.Material3.Button" />
+    </LinearLayout>
+
+</LinearLayout>
